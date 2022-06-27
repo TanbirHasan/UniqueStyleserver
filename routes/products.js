@@ -29,6 +29,22 @@ router.get("/", async (req, res) => {
 
 
 
+//getting one single product information
+
+// Get Product
+router.get("/find/:id", async (req, res) => {
+  try {
+    const product = await Product.findById(req.params.id);
+
+    res.status(200).json(product);
+    console.log(product)
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+
 
 
 module.exports = router;
