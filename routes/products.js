@@ -2,7 +2,22 @@ const Product = require("../modals/Product");
 
 const router = require("express").Router();
 
-// Get Product
+// Get All products
+
+router.get("/allproducts", async (req,res) => {
+  try{
+    const product = await Product.find();
+
+    res.send(product);
+  }
+  catch(err){
+       res.status(500).json(err);
+
+  }
+})
+
+
+// Get category based Product
 router.get("/", async (req, res) => {
 
      const qNew = req.query.new;
