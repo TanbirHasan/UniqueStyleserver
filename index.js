@@ -6,6 +6,7 @@ const dotenv = require("dotenv");
 var jwt = require("jsonwebtoken");
 
 const productRoute = require("./routes/products");
+const ordersRoute = require("./routes/orders");
 
 const app = express();
 app.use(cors());
@@ -47,6 +48,7 @@ mongoose
 
 
 app.use("/api/products", productRoute);
+app.use("/api/orders", ordersRoute);
 
 
 app.listen(process.env.PORT || 8000, () => {
